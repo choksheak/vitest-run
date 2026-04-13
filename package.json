@@ -1,0 +1,19 @@
+{
+  "name": "@choksheak/vitest-run",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "vitest-run": "./dist/cli.js"
+  },
+  "scripts": {
+    "test": "tsx src/cli.ts src/sample.mytest.ts",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@types/node": "^25",
+    "tsup": "^8",
+    "tsx": "^4",
+    "typescript": "^6",
+    "vitest": "^4"
+  }
+}

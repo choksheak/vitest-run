@@ -34,7 +34,7 @@
     "pkg": "mkdir -p dist && cp -f package.json LICENSE README.md dist",
     "pub": "npm publish dist/ --access=public",
     "commit": "scripts/commit-release.sh",
-    "release": "npm i && npm run bump && npm run tsc && npm run build && npm run pkg && npm run pub && npm run commit"
+    "release": "rm -rf dist && npm i && npm run bump && npm run tsc && npm run build && npm run pkg && npm run pub && npm run commit"
   },
   "devDependencies": {
     "@types/node": "^25",

@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { test } from "vitest";
 
 test("mytest", () => {
     console.log("Hello from mytest");

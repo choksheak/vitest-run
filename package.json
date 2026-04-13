@@ -1,13 +1,40 @@
 {
   "name": "@choksheak/vitest-run",
+  "license": "The Unlicense",
   "version": "0.1.0",
+  "description": "A drop-in Vitest CLI that removes the includes restriction and allows the user to run any test file from the CLI.",
+  "private": false,
+  "sideEffects": false,
   "type": "module",
   "bin": {
-    "vitest-run": "./dist/cli.js"
+    "vitest-run": "./vitest-run.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choksheak/vitest-run.git"
+  },
+  "keywords": [
+    "chok",
+    "TS",
+    "vitest",
+    "typescript",
+    "cli"
+  ],
+  "author": "ChokSheak Lau",
+  "homepage": "https://github.com/choksheak/vitest-run#readme",
   "scripts": {
-    "test": "tsx src/cli.ts src/sample.mytest.ts",
-    "build": "tsup"
+    "test": "tsx src/vitest-run.ts src/sample.mytest.ts",
+    "tsc": "npx tsc",
+    "clean": "rm -rf dist",
+    "build": "tsup",
+    "bump": "tsx scripts/bump-version.ts",
+    "bump:patch": "tsx scripts/bump-version.ts --patch",
+    "bump:minor": "tsx scripts/bump-version.ts --minor",
+    "bump:major": "tsx scripts/bump-version.ts --major",
+    "pkg": "mkdir -p dist && cp -f package.json LICENSE README.md dist",
+    "pub": "npm publish dist/ --access=public",
+    "commit": "scripts/commit-release.sh",
+    "release": "npm i && npm run bump && npm run tsc && npm run build && npm run pkg && npm run pub && npm run commit"
   },
   "devDependencies": {
     "@types/node": "^25",

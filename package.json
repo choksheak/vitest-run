@@ -27,16 +27,13 @@
     "tsc": "npx tsc",
     "clean": "rm -rf dist",
     "build": "tsup",
-    "bump": "tsx scripts/bump-version.ts",
-    "bump:patch": "tsx scripts/bump-version.ts --patch",
-    "bump:minor": "tsx scripts/bump-version.ts --minor",
-    "bump:major": "tsx scripts/bump-version.ts --major",
     "pkg": "mkdir -p dist && cp -f package.json LICENSE README.md dist",
     "pub": "npm publish dist/ --access=public",
-    "commit": "scripts/commit-release.sh",
-    "release": "rm -rf dist && npm run bump && npm i && npm run tsc && npm run build && npm run pkg && npm run pub && npm run commit"
+    "commit": "git add . && git commit -m 'Release '`bump-version get`",
+    "release": "npm run clean && bump-version && npm i && npm run tsc && npm run build && npm run pkg && npm run pub && npm run commit"
   },
   "devDependencies": {
+    "@choksheak/bump-version": "^0.1.2",
     "@types/node": "^25",
     "tsup": "^8",
     "tsx": "^4",

@@ -23,21 +23,24 @@
   "author": "ChokSheak Lau",
   "homepage": "https://github.com/choksheak/vitest-run#readme",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "test": "tsx src/vitest-run.ts src/sample.mytest.ts",
-    "tsc": "npx tsc",
+    "tsc": "tsc",
     "clean": "rm -rf dist",
     "build": "tsup",
     "pkg": "mkdir -p dist && cp -f package.json LICENSE README.md dist",
-    "pub": "npm publish dist/ --access=public",
+    "pub": "pnpm publish dist/ --access=public",
     "commit": "git add . && git commit -m 'Release '`bump-version get`",
-    "release": "npm run clean && bump-version && npm i && npm run tsc && npm run build && npm run pkg && npm run pub && npm run commit"
+    "release": "pnpm run clean && bump-version && pnpm i && pnpm run tsc && pnpm run build && pnpm run pkg && pnpm run pub && pnpm run commit"
   },
   "devDependencies": {
     "@choksheak/bump-version": "^0.1.2",
     "@types/node": "^25",
+    "only-allow": "^1.2.2",
     "tsup": "^8",
     "tsx": "^4",
     "typescript": "^6",
     "vitest": "^4"
-  }
+  },
+  "packageManager": "pnpm@10.6.5"
 }

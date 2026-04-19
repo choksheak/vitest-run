@@ -4,8 +4,12 @@ A drop-in Vitest CLI that removes the includes restriction and allows the user t
 
 ## Installation
 
-`npm i -D @choksheak/vitest-run`
+`pnpm add -D @choksheak/vitest-run`
 
 ## Usage
 
-`npx vitest-run src/mytest.custom.ts`
+In package.json: `vitest-run src/mytest.custom.ts`
+
+**npm:** `npx vitest-run src/mytest.custom.ts`
+
+**pnpm:** `pnpm exec vitest-run src/mytest.custom.ts`
